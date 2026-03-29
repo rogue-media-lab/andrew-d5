@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clough for SC5
 
-## Getting Started
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://andrew-d5.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-First, run the development server:
+Campaign website for Andrew Clough, candidate for South Carolina House District 5. Built as a high-fidelity conversion from a Paper design into a production-ready Next.js site.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Live site:** [andrew-d5.vercel.app](https://andrew-d5.vercel.app)
+
+---
+
+## Tech Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Fonts | Inter + Playfair Display via `next/font/google` |
+| Images | `next/image` with remote pattern optimization |
+| Deployment | Vercel |
+| Design source | [Paper](https://paper.design) |
+
+---
+
+## Pages & Components
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # Font loading, metadata, global CSS
+│   ├── globals.css       # Tailwind v4 import + base body styles
+│   └── page.tsx          # Page assembly
+└── components/
+    ├── Nav.tsx           # Fixed top nav, mobile hamburger menu
+    ├── Hero.tsx          # Full-bleed hero, responsive photo treatment
+    ├── About.tsx         # Bio, photo with district badge, stat row
+    ├── Issues.tsx        # 5-issue card grid (3-up + 2-up layout)
+    ├── GetInvolved.tsx   # Volunteer sign-up form (client component)
+    ├── Donate.tsx        # Amount selector + donate CTA (client component)
+    └── Footer.tsx        # Links, disclaimer, copyright
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Color Palette
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Name | Hex |
+|---|---|
+| Navy (primary) | `#0F2044` |
+| Deep navy (footer) | `#0A1628` |
+| Gold (accent) | `#C8902A` |
+| Slate (body text) | `#94A3B8` |
+| Light slate | `#CBD5E1` |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Local Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Roadmap
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Wire up volunteer form to a backend (Airtable, Supabase, or similar)
+- [ ] Integrate ActBlue for donation processing
+- [ ] Connect a CMS (Sanity or Contentful) for issues, news, and events
+- [ ] Add scroll-triggered animations (Framer Motion)
+- [ ] Events calendar page
+- [ ] News/blog page
+- [ ] Accessibility audit (WCAG 2.1 AA)
