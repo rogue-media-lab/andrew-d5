@@ -1,12 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const HERO_IMG =
+  "https://workers.paper.design/file-assets/01KMX0V76HJMT36BQK69SSYAVY/2XQ8BX9PE6YE0DBCKFXK8ZXJYR.jpg";
+
 export default function Hero() {
   return (
     <section className="bg-[#0F2044] pt-20">
-      <div className="max-w-[1440px] mx-auto flex min-h-[780px]">
-        {/* Left */}
-        <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-16 md:py-20">
+      {/* Mobile — full-width photo with gradient fade into navy */}
+      <div className="relative md:hidden w-full h-[420px]">
+        <Image
+          src={HERO_IMG}
+          alt="Andrew Clough standing by a fountain"
+          fill
+          className="object-cover object-[center_20%]"
+          priority
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0F2044]" />
+      </div>
+
+      {/* Content row — text left, photo right (desktop only) */}
+      <div className="max-w-[1440px] mx-auto flex md:min-h-[780px]">
+        {/* Text */}
+        <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-12 md:py-20">
           <div className="flex items-center gap-3 mb-7">
             <div className="w-10 h-0.5 bg-[#C8902A] shrink-0" />
             <span className="text-[#C8902A] font-['Inter',system-ui,sans-serif] font-semibold text-xs uppercase tracking-[0.15em]">
@@ -41,11 +57,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — photo */}
+        {/* Desktop — right photo panel */}
         <div className="hidden md:flex w-[560px] items-end justify-center shrink-0">
           <div className="relative w-[480px] h-[680px] rounded-t-lg overflow-hidden">
             <Image
-              src="https://workers.paper.design/file-assets/01KMX0V76HJMT36BQK69SSYAVY/2XQ8BX9PE6YE0DBCKFXK8ZXJYR.jpg"
+              src={HERO_IMG}
               alt="Andrew Clough standing by a fountain"
               fill
               className="object-cover object-[center_15%]"
