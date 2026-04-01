@@ -3,7 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const navLinks = ["About", "Issues", "Events", "Volunteer"];
+const navLinks = [
+  { label: "About", href: "/about" },
+  { label: "Issues", href: "/issues" },
+  { label: "Events", href: "/events" },
+  { label: "Volunteer", href: "/volunteer" },
+];
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,13 +28,13 @@ export default function Nav() {
 
         {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-9">
-          {navLinks.map((link) => (
+          {navLinks.map(({ label, href }) => (
             <Link
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={label}
+              href={href}
               className="text-[#CBD5E1] font-['Inter',system-ui,sans-serif] font-medium text-sm uppercase tracking-[0.05em] hover:text-white transition-colors"
             >
-              {link}
+              {label}
             </Link>
           ))}
         </div>
@@ -37,7 +42,7 @@ export default function Nav() {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <Link
-            href="#donate"
+            href="/#donate"
             className="rounded-sm py-2.5 px-6 border-[1.5px] border-[#C8902A] text-[#C8902A] font-['Inter',system-ui,sans-serif] font-semibold text-sm uppercase tracking-[0.05em] hover:bg-[#C8902A] hover:text-white transition-colors"
           >
             Donate
@@ -73,18 +78,18 @@ export default function Nav() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#0F2044] border-t border-[#1E2D4A] px-8 py-6 flex flex-col gap-1">
-          {navLinks.map((link) => (
+          {navLinks.map(({ label, href }) => (
             <Link
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={label}
+              href={href}
               className="text-[#CBD5E1] font-['Inter',system-ui,sans-serif] font-medium text-sm uppercase tracking-[0.05em] py-3 hover:text-white transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              {link}
+              {label}
             </Link>
           ))}
           <Link
-            href="#donate"
+            href="/#donate"
             className="mt-3 rounded-sm py-2.5 px-6 border-[1.5px] border-[#C8902A] text-[#C8902A] font-['Inter',system-ui,sans-serif] font-semibold text-sm uppercase tracking-[0.05em] text-center hover:bg-[#C8902A] hover:text-white transition-colors"
             onClick={() => setMenuOpen(false)}
           >

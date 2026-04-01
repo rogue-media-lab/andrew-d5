@@ -27,13 +27,18 @@ export default function Footer() {
               <span className="text-[#C8902A] font-['Inter',system-ui,sans-serif] font-semibold text-[11px] uppercase tracking-[0.15em]">
                 Campaign
               </span>
-              {["About Andrew", "Issues", "Events", "News"].map((item) => (
+              {[
+                { label: "About Andrew", href: "/about" },
+                { label: "Issues", href: "/issues" },
+                { label: "Events", href: "/events" },
+                { label: "News", href: "/news" },
+              ].map(({ label, href }) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={label}
+                  href={href}
                   className="text-[#94A3B8] font-['Inter',system-ui,sans-serif] text-sm hover:text-white transition-colors"
                 >
-                  {item}
+                  {label}
                 </Link>
               ))}
             </div>
@@ -41,13 +46,17 @@ export default function Footer() {
               <span className="text-[#C8902A] font-['Inter',system-ui,sans-serif] font-semibold text-[11px] uppercase tracking-[0.15em]">
                 Take Action
               </span>
-              {["Volunteer", "Donate", "Contact"].map((item) => (
+              {[
+                { label: "Volunteer", href: "/volunteer" },
+                { label: "Donate", href: "/#donate" },
+                { label: "Contact", href: "/#contact" },
+              ].map(({ label, href }) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={label}
+                  href={href}
                   className="text-[#94A3B8] font-['Inter',system-ui,sans-serif] text-sm hover:text-white transition-colors"
                 >
-                  {item}
+                  {label}
                 </Link>
               ))}
             </div>
